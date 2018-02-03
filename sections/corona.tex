@@ -2,7 +2,7 @@
 \section{Flabby Flame - Corona SDK\\ {\small \emph{Eduard Bicego}}}
 \label{sec:corona}
 
-	Ho strutturato questa sezione presentando inizialmente le mie impressioni sull'utilizzo delle librerie offerte da Corona SDK. In seguito ho descritto le impressioni dell'ambiente attorno allo sviluppo con Corona SDK.
+	Ho strutturato questa sezione presentando inizialmente le mie impressioni sull'utilizzo delle librerie offerte da Corona SDK. In seguito ho descritto le impressioni dell'ambiente attorno allo sviluppo con Corona SDK. Infine le regole di usabilità rispettate nell'applicazione finale.
 	
 	\subsection{Corona API}
 
@@ -89,7 +89,47 @@
 	\subsection{Ambiente di sviluppo}
 		
 		\subsubsection{Debug e Simulatore}
+			Il simulatore è certamente lo strumento più potente fornito dal framework. Veloce e immediato, il riavvio del gioco dopo le modifiche ai file lua velocizzano ancor di più lo sviluppo. Personalmente mi sono trovato molto bene. Dall'altra parte la console seppur spartana nell'aspetto dà allo sviluppatore tutto il necessario. 
 	
 		\subsubsection{Editor Atom}
+			Seguendo i consigli nel forum di Corona ho installato e utilizzato l'editor Atom esteso con il plugin per Corona SDK. Sull'editor ho poco da dire, simile alle controparti Visual Studio Code o Brackets etc. Fa il suo lavoro, ottima l'integrazione con git.
+			
+			Riguardo al plugin per corona invece sono rimasto molto deluso, l'unica funzionalità che dà è un menu a tendina per scegliere le funzioni dalle componenti della libreria prima presentate. Non c'è modo di vedere la documentazione direttamente nell'editor. Addirittura anche la scelta dei metodi dal menu a tendina costringe quasi sempre a dover aprire il browser e cercare la documentazione del relativo metodo. Nella figura\ref{fig:atomPlugin} si vede come il plugin non offra nessuna spiegazione per i parametri richiesti dal metodo \verb|composer.gotoScene()|.
+			
+			Trovo assolutamente necessario per il futuro di corona una più stretta collaborazione per incorporare il simulatore, la console e la fruizione della documentazione direttamente nell'editor Atom o qualsiasi altro editor valido.
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\textwidth]{img/atomPlugin}
+				\caption{Il blando aiuto offerto dal plugin Corona per Atom}
+				\label{fig:atomPlugin}
+			\end{figure}
+		
+		\subsection{Build}
+			
+	
+	
+	\subsection{Usabilità}
+	
+		\paragraph{Menu}
+		
+		Pulsanti grandi per raggiungere facilitare la corretta pressione (44px).
+		Il menu è situato sulla parte centrale dello schermo ossia la zona più facilmente accessibile per l'utente.
+		
+		A seguito della scarsa libreria \verb|widget| è compito veramente arduo andare incontro alla User Experience per progettare un'interfaccia originale e allo stesso tempo usabile. 
+		
+		Icone intuitive per il menu di gioco.
+		
+		Ogni sotto menu presenta il pulsante BACK il quale si trova al centro dello schermo e consente all'utente una veloce navigazione e esplorazione dei vari sotto menu.
+		
+		\paragraph{Gioco}
+		Tutorial introduttivo che spiega come si gioca.
+		
+		Tutorial su misura che spiega i modi per mettere in pausa solo quando l'utente preme il pulsante pausa per la prima volta. In questo caso per testare l'uso dei sensori di Corona ho fatto sì che scuotere il device attivi la pausa.
+		
+		Il gioco funziona solo in posizione landscape left, in questo modo il pulsante di pausa del gioco nella versione Android non si trova vicino ai pulsanti di sistema.
+		
+		Il pulsante di pausa in gioco è situato in alto a sinistra, una zona
+		
 		
 

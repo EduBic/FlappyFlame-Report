@@ -1,19 +1,52 @@
 \section{Introduzione}
 
 	\subsection{Il Gioco}
+	
+		AGGIUNGERE DESCRIZIONE DEL GIOCO
 			
 			
 		\subsection{Elementi di gioco}
+			Il gioco è costituito dai seguenti elementi:
+			\begin{itemize}
+				\item Il giocatore: \textbf{una palla di fuoco} soggetta alla fisica, l'utente interagisce con essa applicando una forza verso l'alto con un semplice tap sullo schermo;
+				\item \textbf{Coppie di stalattiti} a distanza costante e con uno spazio fra esse casuale. Il giocatore dovrà passarci attraverso per guadagnare punti se collide con essi invece il gioco termina.
+				\item \textbf{Terreno e limite del cielo}: se la palla di fuoco collide con essi il gioco termina;
+				\item Uno \textbf{sfondo scorrevole};
+			\end{itemize}
+		
+		\subsection{Schermate}
+			Le schermate sono:
+			\begin{itemize}
+				\item Menu principale;
+				\item Gioco;
+				\item Game over;
+				\item Menu di gioco: corrisponde al menu principale ma si sovrappone alla scena di gioco.
+			\end{itemize}
 		
 		\subsection{Menu}
+			Il gioco deve presentare il menu con le seguenti voci:
+			\begin{itemize}
+				\item Play/Resume/Restart: la label cambia in base allo stato del gioco;
+				\item Options:
+				\begin{itemize}
+					\item Volume: modifica il volume dell'audio dell'applicazione;
+					\item Costume: consente all'utente di cambiare stile della propria palla di fuoco.
+				\end{itemize}
+				\item best score: per visualizzare il miglior punteggio fatto;
+				\item Info: una schermata dove in poche righe viene spiegato il gioco.
+			\end{itemize}
 		
 		\subsection{Sonoro}
+			Per il sonoro sono state utilizzate 3 musiche la cui riproduzione parte a seguito dei seguenti eventi:
+			\begin{itemize}
+				\item Apertura del menu di gioco;
+				\item Gioco avviato;
+				\item Game Over;
+			\end{itemize}
 	
+
 	
-	
-\newpage
-	
-	\subsection{I Frameworks}
+	\subsection{Sviluppo: i frameworks}
 		Oggigiorno esistono numerosi framework per sviluppare videogame mobile multipiattaforma. \textbf{Unity3D} e \textbf{Corona SDK} sono due di questi e sono stati scelti per sperimentarne le differenze nel processo di sviluppo di Flappy Flame.
 		
 		\subsection{Unity3D}
