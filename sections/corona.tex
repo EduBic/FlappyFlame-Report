@@ -1,0 +1,88 @@
+\newpage
+\section{Flabby Flame - Corona SDK\\ {\small \emph{Eduard Bicego}}}
+\label{sec:corona}
+
+	Ho strutturato questa sezione presentando inizialmente le librerie che ho usato seguendo le macro funzionalità offerte da Corona SDK, che sono:
+	\begin{itemize}
+		\item audio;
+		\item composer;
+		\item display;
+		\item json;
+		\item physics;
+		\item widget;
+	\end{itemize}
+	In seguito invece ho descritto l'ambiente attorno allo sviluppo con Corona SDK.
+	
+	\subsection{Corona API}
+
+	\subsubsection{Audio}
+		Per quanto riguarda l'audio Corona offre una libreria intuitiva e facile. Attraverso le chiamate \verb|audio.loadStream()| e \verb|audio.loadSound()| è possibile caricare i file audio in memoria e riprodurli attraverso i semplici metodi \verb|play()|, \verb|pause()| e \verb|stop()|. Riguardo al metodo \verb|play()| è necessario dichiarare il canale nel quale l'audio sarà riprodotto, questa gestione è lasciata allo sviluppatore in questo modo si ha il totale controllo sull'interazione delle diverse tracce audio.
+		
+		Personalmente ho trovato facile usare la libreria e in pochi passi sono riuscito ad aggiungere le musiche al gioco. La difficoltà maggiore per giochi più avanzati potrebbe essere quella di gestire il corretto flusso delle musiche seguendo gli eventi.
+		
+		
+		\paragraph{Problematiche}
+			Non ho riscontrato nessuna problematica particolare. Ho preferito lavorare con il sonoro disattivato o a basso volume, questo per il fastidio del continuo riavvio e non per problematiche riguardanti Corona.
+	
+	\subsection{Composer}
+		Il \verb|composer| è un'API che permette di gestire le scene del gioco, ossia le schermate, in modo modulare. Ogni scena si occupa di gestire 6 importanti eventi:
+		\begin{enumerate}
+			\item La \textbf{creazione} (\verb|create|);
+			\item La \textbf{visualizzazione prossima} su schermo (\verb|show will|);
+			\item La \textbf{visualizzazione} su schermo (\verb|show did|);
+			\item La \textbf{sparizione prossima} dallo schermo (\verb|hide will|);
+			\item La \textbf{sparizione} dallo schermo (\verb|hide did|);
+			\item La \textbf{distruzione} (\verb|destroy|);
+		\end{enumerate}
+		La potenzialità di questa libreria è il fatto di incapsulare parti del gioco riutilizzabili in diversi momenti e con altre scene. Infatti ho potuto riutilizzare lo stesso menu della schermata iniziale per il menu di pausa. Interessante l'interazione con gli oggetti display e widget i quali sono automaticamente gestiti da essa nella rimozione dallo schermo se opportunamente inseriti nella scena.
+		
+		\paragraph{Problematiche}
+		Avendo già un background nello sviluppo su Android con API native la libreria \verb|composer| è stata una piacevole sorpresa e ha velocizzato lo sviluppo. Infatti essa rimarca il concetto di \verb|Fragment| dell'Android SDK. Peccato che tali somiglianze le abbia scoperte solo grazie ai vari tentativi e fallimenti infatti molte cose non sono esplicitate nella documentazione. Ad esempio non è chiara la distinzione tra gli eventi \verb|will|/\verb|did| e nulla viene menzionato su quando sia corretto aggiungere/rimuovere i listener, quando aggiungere/rimuovere oggetti su schermo o musiche e altro.
+		
+		
+	\subsection{Display}
+		\verb|display| è sicuramente l'api più utilizzata ed infatti presenta numerosi metodi per ogni evenienza. Ogni oggetto su schermo viene creato da questi metodi: cerchi, rettangoli etc. Offre molte funzionalità per facilitare la componibilità di elementi grafici grazie a \verb|newGroup()| e \verb|newContainer()|. L'integrazione con la parte \verb|physics| è eccellente e verrà discussa in seguito. 
+		
+		\paragraph{Problematiche}
+		Ho trovato molto difficile utilizzare i metodi con molti parametri, anche perché una volta scritto il metodo alla rilettura non ricordavo quale variabile corrispondesse con il parametro visto che spesso si usano direttamente numeri per indicare le coordinate di un elemento grafico. A peggiorare la situazione c'è un'incoerenza nei metodi. Infatti i parametri variano spesso di posizione: \verb|display.newImageRect( [parent,] filename, [baseDir,] width, height )| presenta una serie di parametri molto diversi da altri metodi.
+		\begin{verbatim}
+			local displayElem = display.newImageRect("img/img.png", 100, 100)
+			displayElem.x = 10;
+			displayElem.y = 10;
+		\end{verbatim}
+		
+		Nel secondo invece per definire \verb|x| e \verb|y| basta la sola chiamata al metodo:
+	
+		\begin{verbatim}
+			local displayElem = display.newRect(10, 10, 100, 100)
+		\end{verbatim}
+		
+		Nel terzo invece bisogna elencare una tabella di opzioni:
+		
+		\begin{verbatim}
+		local displayElem = display.newText(
+		{
+		text = "SCORE: " .. score,
+		x = display.contentCenterX,
+		y = bottomRightY - 15,
+		font = native.systemFont,
+		fontSize = 16,
+		align = "center"
+		})
+		\end{verbatim}
+		
+		Come si vede lo sviluppatore deve ricordarsi ben 3 modi diversi per creare elementi sullo schermo. Personalmente dove possibile ho sempre preferito la terza scrittura la quale risulta estremamente più leggibile della seconda e della prima chiamata a metodo.
+		Anche in questo caso la documentazione approfondita non esiste o è carente. Mi sono trovato molte volte a creare parti di codice solo per test di alcune funzionalità.
+		
+		
+	\subsection{Json}
+		Per il salvataggio di dati dell'utente è possibile utilizzare un file json e la libreria dedicata \verb|json|. Esiste la possibilità di creare un database SQLite ma per le piccole esigenze del gioco ho preferito limitarmi ad usare un semplice file json. La lettura e scrittura è molto semplice ma molto meccanica e quindi a rischio di stupidi errori. 
+		
+		\paragraph{Problematicità}
+			Non ho notato particolari criticità per questa parte. Per evitare di riscrivere la parte macchinosa ogni volta ho scritto un piccolo file \verb|JsonUtils| che racchiude le funzioni necessarie per recuperare i dati salvati.
+		
+	\subsection{Physics}
+		
+	\subsection{Widget}
+		
+
