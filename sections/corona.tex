@@ -2,16 +2,7 @@
 \section{Flabby Flame - Corona SDK\\ {\small \emph{Eduard Bicego}}}
 \label{sec:corona}
 
-	Ho strutturato questa sezione presentando inizialmente le librerie che ho usato seguendo le macro funzionalità offerte da Corona SDK, che sono:
-	\begin{itemize}
-		\item audio;
-		\item composer;
-		\item display;
-		\item json;
-		\item physics;
-		\item widget;
-	\end{itemize}
-	In seguito invece ho descritto l'ambiente attorno allo sviluppo con Corona SDK.
+	Ho strutturato questa sezione presentando inizialmente le mie impressioni sull'utilizzo delle librerie offerte da Corona SDK. In seguito ho descritto le impressioni dell'ambiente attorno allo sviluppo con Corona SDK.
 	
 	\subsection{Corona API}
 
@@ -25,7 +16,7 @@
 			Non ho riscontrato nessuna problematica particolare. Ho preferito lavorare con il sonoro disattivato o a basso volume, questo per il fastidio del continuo riavvio e non per problematiche riguardanti Corona.
 	
 	\subsection{Composer}
-		Il \verb|composer| è un'API che permette di gestire le scene del gioco, ossia le schermate, in modo modulare. Ogni scena si occupa di gestire 6 importanti eventi:
+		Il \verb|composer| è un'API che permette di gestire le scene del gioco, ossia le schermate, in modo modulare. Ogni scena si occupa di gestire 6 importanti eventi (fasi):
 		\begin{enumerate}
 			\item La \textbf{creazione} (\verb|create|);
 			\item La \textbf{visualizzazione prossima} su schermo (\verb|show will|);
@@ -44,7 +35,7 @@
 		\verb|display| è sicuramente l'api più utilizzata ed infatti presenta numerosi metodi per ogni evenienza. Ogni oggetto su schermo viene creato da questi metodi: cerchi, rettangoli etc. Offre molte funzionalità per facilitare la componibilità di elementi grafici grazie a \verb|newGroup()| e \verb|newContainer()|. L'integrazione con la parte \verb|physics| è eccellente e verrà discussa in seguito. 
 		
 		\paragraph{Problematiche}
-		Ho trovato molto difficile utilizzare i metodi con molti parametri, anche perché una volta scritto il metodo alla rilettura non ricordavo quale variabile corrispondesse con il parametro visto che spesso si usano direttamente numeri per indicare le coordinate di un elemento grafico. A peggiorare la situazione c'è un'incoerenza nei metodi. Infatti i parametri variano spesso di posizione: \verb|display.newImageRect( [parent,] filename, [baseDir,] width, height )| presenta una serie di parametri molto diversi da altri metodi.
+		Ho trovato molto difficile utilizzare i metodi con molti parametri, anche perché una volta scritto il metodo alla rilettura non ricordavo quale variabile corrispondesse con il parametro visto che spesso si usano direttamente numeri per indicare le coordinate di un elemento grafico. A peggiorare la situazione c'è un'incoerenza nei metodi. Infatti i parametri variano spesso di posizione: \verb|display.newImageRect(filename, width, height)| presenta una serie di parametri molto diversi da altri metodi.
 		\begin{verbatim}
 			local displayElem = display.newImageRect("img/img.png", 100, 100)
 			displayElem.x = 10;
@@ -76,13 +67,29 @@
 		
 		
 	\subsection{Json}
-		Per il salvataggio di dati dell'utente è possibile utilizzare un file json e la libreria dedicata \verb|json|. Esiste la possibilità di creare un database SQLite ma per le piccole esigenze del gioco ho preferito limitarmi ad usare un semplice file json. La lettura e scrittura è molto semplice ma molto meccanica e quindi a rischio di stupidi errori. 
+		Per il salvataggio di dati dell'utente è possibile utilizzare un file json e la libreria dedicata \verb|json|. Esiste la possibilità di creare un database SQLite ma per le ridotte esigenze del gioco ho preferito limitarmi ad usare un semplice file json.
 		
-		\paragraph{Problematicità}
-			Non ho notato particolari criticità per questa parte. Per evitare di riscrivere la parte macchinosa ogni volta ho scritto un piccolo file \verb|JsonUtils| che racchiude le funzioni necessarie per recuperare i dati salvati.
+		\paragraph{Problematiche}
+			Non ho notato particolari criticità per questa parte. La lettura e scrittura è molto semplice ma molto meccanica e quindi a rischio di stupidi errori. Per evitare questo ho scritto un piccolo file \verb|JsonUtils| che racchiude le funzioni necessarie per recuperare i dati salvati.
 		
 	\subsection{Physics}
+		\verb|physics| è una libreria che collega gli oggetti \verb|displayObject| al motore fisico 2Dbox. Ho utilizzato la fisica solo per la palla di fuoco mossa dal giocatore. Aggiungere la fisica ad un oggetto è semplice \verb|physics.addBody()| e lo stesso per rimuoverla asta \verb|physics.removeBody()|. La costruzione di corpi fisici diversi da cerchi e rettangolo risulta più ostica e per le stalattiti ho dovuto tentare più volte per capire se ero riuscito a creare un corpo triangolare. Fortunatamente esiste la funzione di debug \verb|physics.setDrawMode("hybrid")| che permette di visualizzare sia gli oggetti grafici sia i corpi fisici collegati ad esso.
+		
+		\paragraph{Problematiche}
+		Purtroppo gli oggetti a cui è applicata la fisica non sono componibili e quindi non sono riuscito ad implementare la fiamma che dovrebbe comparire quando l'utente 
+		tocca lo schermo per saltare.
 		
 	\subsection{Widget}
+		Mi sono servito della libreria \verb|widget| nella costruzione dei pulsanti e slider dei menu e sottomenu. 
+	
+		\paragraph{Problematiche}
+		La libreria widget risulta essere la parte più deludente vista di Corona SDK. Le opzioni sono minimali e tutto il lavoro di design e stile dei widget è lasciato al programmatore. Infatti negli esempi e tutorial che ho trovato si preferisce sempre creare tutto con software grafici e poi utilizzare \verb|display.newImageRect()| piuttosto di appoggiarsi a questa libreria. La mancanza di un oggetto \verb|Layout| e tutti i suoi derivati è la cosa più grave. Nel mio caso avendo per ogni pulsante del menu delle coordinate assolute rispetto allo schermo mi sono risultati ostici semplici aggiunte o rimozioni di pulsanti o ancora più semplicemente la semplice modifica di un pulsante. Tutto infatti andava riposizionato da capo. Ho dovuto creare da zero delle funzioni di calcolo per mantenere le proporzioni nel caso avessi cambiato anche solo la dimensione di un pulsante di 1px. 
+		Per questa esperienza sconsiglio il framework Corona per applicazioni di tipo business.
+	
+	\subsection{Ambiente di sviluppo}
+		
+		\subsubsection{Debug e Simulatore}
+	
+		\subsubsection{Editor Atom}
 		
 
