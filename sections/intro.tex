@@ -1,11 +1,11 @@
 \section{Introduzione}
 
 	\subsection{Il Gioco}
-	
-		AGGIUNGERE DESCRIZIONE DEL GIOCO
+		Il gioco implementato per questo progetto si ispira e ne imita le meccaniche del famoso  Flappy Bird. L'obiettivo del giocatore mantenere in volo il proprio personaggio, nel nostro caso una palla di fuoco, e far sì che non collida con gli altri elementi del gioco. Il giocatore interagisce solo dando una spinta verso l'alto attraverso il semplice tap su schermo. Oltre a questo per guadagnare punti deve attraversare un piccolo spazio tra una coppia di stalattiti a cui il personaggio va incontro.
+		
+		Abbiamo scelto questa gioco perché nella sua semplicità è un ottimo progetto didattico per provare e imparare ad usare un framework cross-platform.
 			
-			
-		\subsection{Elementi di gioco}
+		\subsubsection{Elementi di gioco}
 			Il gioco è costituito dai seguenti elementi:
 			\begin{itemize}
 				\item Il giocatore: \textbf{una palla di fuoco} soggetta alla fisica, l'utente interagisce con essa applicando una forza verso l'alto con un semplice tap sullo schermo;
@@ -14,7 +14,7 @@
 				\item Uno \textbf{sfondo scorrevole}.
 			\end{itemize}
 		
-		\subsection{Schermate}
+		\subsubsection{Schermate}
 			Le schermate sono:
 			\begin{itemize}
 				\item Menu principale;
@@ -23,7 +23,7 @@
 				\item Menu di gioco: corrisponde al menu principale ma si sovrappone alla scena di gioco.
 			\end{itemize}
 		
-		\subsection{Menu}
+		\subsubsection{Menu}
 			Il gioco deve presentare il menu con le seguenti voci:
 			\begin{itemize}
 				\item Play/Resume/Restart: la label cambia in base allo stato del gioco;
@@ -36,11 +36,11 @@
 				\item Info: una schermata dove in poche righe viene spiegato il gioco.
 			\end{itemize}
 		
-		\subsection{Sonoro}
+		\subsubsection{Sonoro}
 			Per il sonoro sono state utilizzate 3 musiche la cui riproduzione parte a seguito dei seguenti eventi:
 			\begin{itemize}
-				\item Apertura del menu di gioco;
-				\item Gioco avviato;
+				\item Apertura del menu di gioco\ref{fig:menu};
+				\item Gioco avviato\ref{fig:game};
 				\item Game Over.
 			\end{itemize}
 	
@@ -66,5 +66,31 @@
 		
 	\subsection{Struttura del documento}
 		La presente sezione è stata scritta da entrambi gli autori. Le sezioni che coinvolgono la discussione dello sviluppo con lo specifico framework sono scritte dall'autore segnalato sotto al titolo della sezione. Le sezioni \ref{sec:unity} e \ref{sec:corona} sono indipendenti tra loro e data la notevole differenza dei due framework non seguono la stessa struttura. Nell'ultima sezione invece si metteranno a confronto il processo e i risultati ottenuti dall'utilizzo di questi framework.
+		
+	\newpage
+	\begin{figure} [h!]
+		\centering
+		\includegraphics[width=\textwidth]{img/unityMenu}
+		
+		\vspace{2cm}
+		
+		\includegraphics[width=\textwidth]{img/coronaMenu}
+		\caption{Menu principale in Unity3D (in alto) e Corona SDK}
+		\label{fig:menu}
+	\end{figure}
+	
+	\newpage
+	\begin{figure} [h!]
+		\centering
+		\includegraphics[width=\textwidth]{img/unityGame}
+		
+		\vspace{2cm}
+		
+		\includegraphics[width=\textwidth]{img/coronaGame}
+		\caption{Schermata di gioco in Unity3D (in alto) e Corona SDK}
+		\label{fig:game}
+	\end{figure}
+	
+	\newpage
 	
 	
