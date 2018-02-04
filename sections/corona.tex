@@ -114,30 +114,29 @@
 	
 	
 	\subsection{Usabilità}
-		DA FINIRE
-	
-		\paragraph{Menu}
-		
-		Pulsanti grandi per raggiungere facilitare la corretta pressione (44px).
-		Il menu è situato sulla parte centrale dello schermo ossia la zona più facilmente accessibile per l'utente.
-		
-		A seguito della scarsa libreria \verb|widget| è compito veramente arduo andare incontro alla User Experience per progettare un'interfaccia originale e allo stesso tempo usabile. 
-		
-		Icone intuitive per il menu di gioco.
-		
-		Ogni sotto menu presenta il pulsante BACK il quale si trova al centro dello schermo e consente all'utente una veloce navigazione e esplorazione dei vari sotto menu.
-		
-		Il pulsante Exit precedentemente implementato è stato rimosso perché ritenuto inutile in ambito mobile. Anche l'opzione del Volume potrebbe essere rimossa visto che, sempre in ambito mobile, l'utente è abituato a gestire l'audio tramite widget offerti dal sistema operativo.
-		
+				
 		\paragraph{Gioco}
-		Tutorial introduttivo che spiega come si gioca.
+			Nel gioco viene introdotto attraverso un piccolo tutorial introduttivo all'avvio del gioco. Il gioco infatti pretende che l'utente fin da subito prema sullo schermo per mantenere in volo la palla. Ho scelto di tenere il tutorial permanente finché l'utente non prenda un punto. In questo modo si ha la certezza che l'utente l'abbia letto almeno una volta e sappia come giocare. Facendo così evito il disorientamento e la frustrazione dell'utente ai primi game over.
+			
+			Il gioco funziona solo in posizione landscape left, in questo modo il pulsante di Pausa del gioco nella versione Android non si trova vicino ai pulsanti di sistema. Il gioco scorre da destra verso sinistra quindi l'utente sarà più propenso a giocare con la mano sinistra. Questo ragionamento ha fatto sì che il pulsante fosse posizionato a sinistra mentre è stata scelta la posizione in alto perché l'area è più facile da raggiungere e non risulta coperta rispetto agli angoli inferiori.
 		
-		Tutorial su misura che spiega i modi per mettere in pausa solo quando l'utente preme il pulsante pausa per la prima volta. In questo caso per testare l'uso dei sensori di Corona ho fatto sì che scuotere il device attivi la pausa.
+			Il secondo tutorial implementato spiega il modo alternativo per mettere in pausa, ossia scuotendo il device. Questo tutorial viene presentato solo quando l'utente preme per la prima volta il pulsante Pausa. Questa funzionalità sperimentale è stata implementata principalmente per scopo didattico per testare l'uso dei sensori con Corona. L'implementazione del listener all'accelerometro è stato immediato e intuitivo.
 		
-		Il gioco funziona solo in posizione landscape left, in questo modo il pulsante di pausa del gioco nella versione Android non si trova vicino ai pulsanti di sistema.
+		
 		
 		Il pulsante di pausa in gioco è situato in alto a sinistra, una zona
+	
+		\paragraph{Menu} Per quanto riguarda il menu si è optata la scelta di avere pulsanti grandi per facilitare la corretta pressione a scapito di avere più sotto menu. Il menu è situato sulla parte centrale dello schermo ossia la zona più facilmente raggiungibile dai pollici dell'utente. Per ridurre lo spazio occupato nello schermo si è optato per l'utilizzo di icone universalmente riconosciute per i seguenti sotto menu:
+		\begin{itemize}
+			\item Best score;
+			\item Info;
+		\end{itemize}
+		Inoltre ogni sotto menu presenta il pulsante BACK il quale si trova al centro dello schermo e consente all'utente una veloce navigazione e esplorazione dei vari sotto menu.
 		
+		Il pulsante Exit precedentemente implementato è stato rimosso perché ritenuto inutile in ambito mobile visto che solitamente l'utente esce dall'app tramite il tasto Home. Anche l'opzione del Volume potrebbe essere rimossa visto che, sempre in ambito mobile, l'utente infatti è abituato a gestire l'audio tramite widget offerti dal sistema operativo.
+		
+		A seguito di tutto quello già descritto della scarsa libreria \verb|widget|, ritengo un compito arduo gestire la User Experience con Corona SDK.
+	
 		
 	\subsection{Valutazione finale}
 		Vantaggi:
@@ -154,7 +153,7 @@
 		\begin{itemize}
 			\item Lua: per i programmatori abituati ai linguaggi orientati agli oggetti diventa una difficoltà in più perché gli è richiesto un cambio di approccio nella programmazione. Inoltre Lua è un linguaggio poco spendibile in altri contesti se non nello sviluppo di giochi.
 			\item Insufficiente la documentazione per approfondire le potenzialità offerte dal framework.
-			\item Mancanza di librerie per la gestione tipica di menu, manca l'implementazione di concetti come il layout. Tutto è posizionato nello schermo in coordinate assolute, ciò fa sì che una modifica richieda di cambiare anche tutte le posizioni degli elementi su schermo.
+			\item Mancanza di librerie per la gestione tipica di menu, manca l'implementazione di concetti come il layout. Tutto è posizionato nello schermo in coordinate assolute, ciò fa sì che una modifica richieda di cambiare anche tutte le posizioni degli elementi su schermo. Risulta quindi ostico gestire al meglio l'usabilità.
 			\item Il framework è cross-platform ma resta comunque un engine per soli giochi 2D, difficile da utilizzare per altri tipi di applicazioni (vedi precedente svantaggio)
 			\item Il framework supporta solo la costruzione di ambienti 2D.
 			\item Mancanza di un editor di sviluppo ideato per Corona, si pensi ad Android Studio per Android o a Visual Studio per Xamarin o Unity. Esistono alcuni plugin per famosi editor ma non velocizzano molto la fase di codifica.
@@ -167,9 +166,11 @@
 			
 			Ritengo Corona un framework perfetto per avvicinarsi alla programmazione di videogame soprattutto per chi ha già un Javascript in background. Dall'altra parte vedo ardua la creazione di giochi molto complessi con Corona SDK e in quel caso mi cercherei altri framework più avanzati e complessi. Ritengo la totale gratuità un vantaggio notevole, soprattutto per il mondo degli sviluppatori indipendenti. 
 			
+			Dal lato dell'usabilità Corona SDK sembra non averci minimamente pensato, basti pensare alla lacunosa libreria \verb|widget| e ritengo Corona SDK un framework inappropriato per applicazioni con contesti non ludici.
+			
 			Corona ha certamente delle grandi potenzialità ma quello che secondo me fa la differenza nella scelta delle tecnologie è l’ambiente di sviluppo. Ritengo che questo sia un punto fondamentale per l’affermazione di un framework. La totale assenza di un editor integrato con tutti gli altri strumenti: simulatore, console, documentazione inline etc. fa sì che lo sviluppo con Corona SDK sia una quasi costante fonte di frustrazione.
 			
-			\paragraph{} Quindi: Corona SDK sì o no? Sì, se si è alle prime armi e si voglia sperimentare partendo con un budget limitato, no altrimenti.
+			\paragraph{} Quindi: Corona SDK sì o no? Sì, se si è alle prime armi e si voglia sperimentare lo sviluppo di un videogame con budget limitato, no altrimenti.
 			
 		
 
