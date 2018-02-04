@@ -3,6 +3,7 @@
 \label{sec:corona}
 
 	Ho strutturato questa sezione presentando inizialmente le mie impressioni sull'utilizzo delle librerie offerte da Corona SDK. In seguito ho descritto le impressioni dell'ambiente attorno allo sviluppo con Corona SDK. Infine le regole di usabilità rispettate nell'applicazione finale.
+	Per quanto riguarda i test su dispositivo fisico sono stati fatti su un ASUS zenPhone Go con sistema operativo Android OS, pertanto non ho potuto avere un riscontro sulle funzionalità dell'applicazione anche su iOS.
 	
 	\subsection{Corona API}
 
@@ -87,6 +88,9 @@
 		Per questa esperienza sconsiglio il framework Corona per applicazioni di tipo business.
 	
 	\subsection{Ambiente di sviluppo}
+	
+		\subsubsection{Lua}
+			Nonostante il linguaggio sia promosso come un linguaggio facile ho trovato molte difficoltà iniziali soprattutto nello strutturare e organizzare il codice. Penso che questo derivi dal mio background in cui prevale la conoscenza della programmazione orientata a orientati ad oggetti e non prototype-based come Lua. Una volta superato questo gradino iniziale non ho avuto più ostacoli di questo genere.
 		
 		\subsubsection{Debug e Simulatore}
 			Il simulatore è certamente lo strumento più potente fornito dal framework. Veloce e immediato, il riavvio del gioco dopo le modifiche ai file lua velocizzano ancor di più lo sviluppo. Personalmente mi sono trovato molto bene. Dall'altra parte la console seppur spartana nell'aspetto dà allo sviluppatore tutto il necessario. 
@@ -101,12 +105,12 @@
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.9\textwidth]{img/atomPlugin}
-				\caption{Il blando aiuto offerto dal plugin Corona per Atom}
+				\caption{L'aiuto blando offerto dal plugin Corona per Atom}
 				\label{fig:atomPlugin}
 			\end{figure}
 		
 		\subsection{Build}
-			
+			Riguardo la compilazione dell'applicazione non ho avuto particolari problemi se non che è risultata dipendente dalla connessione a Internet e quindi il più delle volte lenta. 
 	
 	
 	\subsection{Usabilità}
@@ -131,5 +135,39 @@
 		
 		Il pulsante di pausa in gioco è situato in alto a sinistra, una zona
 		
+	\newpage
+		
+	\subsection{Valutazione finale}
+		Vantaggi:
+		\begin{itemize}
+			\item Simulatore immediato, essenziale e veloce.
+			\item Lua è ottimo per chi proviene dal mondo Javascript e Python o è nuovo al mondo della programmazione;
+			\item Buona la documentazione per iniziare, anche per totali inesperti;
+			\item Ottime librerie per la gestione dell'audio, degli oggetti visualizzabili e per gestire la fisica del gioco.
+			\item Multipiattaforma;
+			\item Ottimo per iniziare a programmare in modo veloce videogame 2D;
+			\item Gratuito, le applicazioni prodotte sono commercializzabili e non richiedono acquisti di licenza. Ci sono abbonamenti ma solo per avere altri strumenti di sviluppo più avanzati.
+		\end{itemize}
+		Svantaggi:
+		\begin{itemize}
+			\item Lua: per i programmatori abituati ai linguaggi orientati agli oggetti diventa una difficoltà in più perché gli è richiesto un cambio di approccio nella programmazione. Inoltre Lua è un linguaggio poco spendibile in altri contesti se non nello sviluppo di giochi.
+			\item Insufficiente la documentazione per approfondire le potenzialità offerte dal framework.
+			\item Mancanza di librerie per la gestione tipica di menu, manca l'implementazione di concetti come il layout. Tutto è posizionato nello schermo in coordinate assolute, ciò fa sì che una modifica richieda di cambiare anche tutte le posizioni degli elementi su schermo.
+			\item Il framework è cross-platform ma resta comunque un engine per soli giochi 2D, difficile da utilizzare per altri tipi di applicazioni (vedi precedente svantaggio)
+			\item Il framework supporta solo la costruzione di ambienti 2D.
+			\item Mancanza di un editor di sviluppo ideato per Corona, si pensi ad Android Studio per Android o a Visual Studio per Xamarin o Unity. Esistono alcuni plugin per famosi editor ma non velocizzano molto la fase di codifica.
+			\item Compilare la propria applicazione richiede una connessione Internet. È un processo che a lungo andare fa perdere molto tempo soprattutto quando si vuole ripetutamente testare sui device fisici, la dimensione del codice sorgente è notevole (pensiamo alle immagini) e/o la propria connessione è lenta.
+		\end{itemize}
+		
+		
+		\subsection{Considerazioni finali}
+			Le principali difficoltà riscontrate nello sviluppo di Flappy Flame non devono ricadere al 100\% su Corona, la mia scarsa competenza di uso di un linguaggio di scripting e di sviluppo di videogame ha rallentato molto inizialmente lo sviluppo. Infatti lo sviluppo di un videogame presenta una moltitudine di problemi legati fra loro e spesso molto più complessi di un’applicazione business: la gestione del Game Loop ne è un esempio.
+			
+			Ritengo Corona un framework perfetto per avvicinarsi alla programmazione di videogame soprattutto per chi ha già un Javascript in background. Dall'altra parte vedo ardua la creazione di giochi molto complessi con Corona SDK e in quel caso mi cercherei altri framework più avanzati e complessi. Ritengo la totale gratuità un vantaggio notevole, soprattutto per il mondo degli sviluppatori indipendenti. 
+			
+			Corona ha certamente delle grandi potenzialità ma quello che secondo me fa la differenza nella scelta delle tecnologie è l’ambiente di sviluppo. Ritengo che questo sia un punto fondamentale per l’affermazione di un framework. La totale assenza di un editor integrato con tutti gli altri strumenti: simulatore, console, documentazione inline etc. fa sì che lo sviluppo con Corona SDK sia una quasi costante fonte di frustrazione.
+			
+			\paragraph{} Quindi: Corona SDK sì o no? Sì, se si è alle prime armi e si voglia sperimentare partendo con un budget limitato, no altrimenti.
+			
 		
 
