@@ -1,15 +1,15 @@
 \section{Introduzione}
 
 	\subsection{Il Gioco}
-		Il gioco implementato per questo progetto si ispira e ne imita le meccaniche del famoso  Flappy Bird. L'obiettivo del giocatore mantenere in volo il proprio personaggio, nel nostro caso una palla di fuoco, e far sì che non collida con gli altri elementi del gioco. Il giocatore interagisce solo dando una spinta verso l'alto attraverso il semplice tap su schermo. Oltre a questo per guadagnare punti deve attraversare un piccolo spazio tra una coppia di stalattiti a cui il personaggio va incontro.
+		Il gioco implementato per questo progetto si ispira e imita le meccaniche del famoso  Flappy Bird. L'obiettivo del giocatore è mantenere in volo il proprio personaggio, che nel nostro caso è una palla di fuoco, e far sì che non collida con gli altri elementi del gioco. Il player interagisce solo dando una spinta verso l'alto alla pallina attraverso un semplice tap sullo schermo. Oltre a questo, per guadagnare punti, il giocatore deve far attraversare la pallina tra un piccolo spazio formato dalla distanza fra una coppia di stalattiti a cui il personaggio stesso va incontro.
 		
-		Abbiamo scelto questa gioco perché nella sua semplicità è un ottimo progetto didattico per provare e imparare ad usare un framework cross-platform.
+		Abbiamo scelto questa gioco perché, nella sua semplicità, è un ottimo progetto didattico per provare e imparare ad usare un framework cross-platform.
 			
 		\subsubsection{Elementi di gioco}
 			Il gioco è costituito dai seguenti elementi:
 			\begin{itemize}
-				\item Il giocatore: \textbf{una palla di fuoco} soggetta alla fisica, l'utente interagisce con essa applicando una forza verso l'alto con un semplice tap sullo schermo;
-				\item \textbf{Coppie di stalattiti} a distanza costante e con uno spazio fra esse casuale. Il giocatore dovrà passarci attraverso per guadagnare punti se collide con essi invece il gioco termina.
+				\item Il personaggio: \textbf{una palla di fuoco} soggetta alla fisica. L'utente interagisce con essa applicando una forza verso l'alto con un semplice tap sullo schermo;
+				\item \textbf{Coppie di stalattiti} a distanza costante ma con posizione casuale. Scopo del giocatore per guadagnare punti è far passare la palla tra questo spazio: se essa collide con una stalattite il gioco termina;
 				\item \textbf{Terreno e limite del cielo}: se la palla di fuoco collide con essi il gioco termina;
 				\item Uno \textbf{sfondo scorrevole}.
 			\end{itemize}
@@ -24,13 +24,13 @@
 			\end{itemize}
 		
 		\subsubsection{Menu}
-			Il gioco deve presentare il menu con le seguenti voci:
+			Il gioco presenta un menu con le seguenti voci:
 			\begin{itemize}
 				\item Play/Resume/Restart: la label cambia in base allo stato del gioco;
 				\item Options:
 				\begin{itemize}
 					\item Volume: modifica il volume dell'audio dell'applicazione;
-					\item Costume: consente all'utente di cambiare stile della propria palla di fuoco;
+					\item Costume: consente all'utente di cambiare stile alla propria palla di fuoco;
 				\end{itemize}
 				\item Best score: per visualizzare il miglior punteggio fatto;
 				\item Info: una schermata dove in poche righe viene spiegato il gioco.
@@ -47,7 +47,7 @@
 
 	
 	\subsection{Sviluppo: i frameworks}
-		Oggigiorno esistono numerosi framework per sviluppare videogame mobile multipiattaforma. \textbf{Unity3D} e \textbf{Corona SDK} sono due di questi e sono stati scelti per sperimentarne le differenze nel processo di sviluppo di Flappy Flame.
+		Oggigiorno esistono numerosi framework utili allo sviluppo di videogame mobile multipiattaforma. \textbf{Unity3D} e \textbf{Corona SDK} sono due di questi e sono stati scelti per sperimentarne le differenze nel processo di sviluppo di Flappy Flame.
 		
 		\subsubsection{Unity3D}
 			Unity è un framework, ovvero uno strumento di authoring integrato multipiattaforma utilizzato per la creazione di videogiochi 3D o di altri contenuti interattivi. 
