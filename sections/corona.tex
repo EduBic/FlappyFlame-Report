@@ -3,7 +3,7 @@
 \label{sec:corona}
 
 	Ho strutturato questa sezione presentando inizialmente le mie impressioni sull'utilizzo delle librerie offerte da Corona SDK. In seguito ho descritto le impressioni dell'ambiente attorno allo sviluppo con Corona SDK. Infine le regole di usabilità rispettate nell'applicazione finale.
-	Per quanto riguarda i test su dispositivo fisico sono stati fatti su un ASUS zenPhone Go con sistema operativo Android OS, pertanto non ho potuto avere un riscontro sulle funzionalità dell'applicazione anche su iOS.
+	\paragraph*{N.B.} I test sono stati fatti solo su dispositivo ASUS zenPhone Go con sistema operativo Android 6.
 	
 	\subsection{Corona API}
 
@@ -84,7 +84,7 @@
 		Mi sono servito della libreria \verb|widget| nella costruzione dei pulsanti e slider dei menu e sottomenu. 
 	
 		\paragraph{Problematiche}
-		La libreria widget risulta essere la parte più deludente vista di Corona SDK. Le opzioni sono minimali e tutto il lavoro di design e stile dei widget è lasciato al programmatore. Infatti negli esempi e tutorial che ho trovato si preferisce sempre creare tutto con software grafici e poi utilizzare \verb|display.newImageRect()| piuttosto di appoggiarsi a questa libreria. La mancanza di un oggetto \verb|Layout| e tutti i suoi derivati è la cosa più grave. Nel mio caso avendo per ogni pulsante del menu delle coordinate assolute rispetto allo schermo mi sono risultati ostici semplici aggiunte o rimozioni di pulsanti o ancora più semplicemente la semplice modifica di un pulsante. Tutto infatti andava riposizionato da capo. Ho dovuto creare da zero delle funzioni di calcolo per mantenere le proporzioni nel caso avessi cambiato anche solo la dimensione di un pulsante di 1px. 
+		La libreria widget risulta essere la parte più deludente vista di Corona SDK. Le opzioni sono minimali e tutto il lavoro di design e stile dei widget è lasciato al programmatore. Infatti negli esempi e tutorial che ho trovato si preferisce sempre creare tutto con software grafici e poi utilizzare \verb|display.newImageRect()| piuttosto di appoggiarsi a questa libreria. La mancanza di un oggetto \verb|Layout| e tutti i suoi derivati è la cosa più grave. Nel mio caso avendo per ogni pulsante del menu delle coordinate assolute rispetto allo schermo mi sono risultati ostici semplici aggiunte o rimozioni di pulsanti o anche la sola modifica di un pulsante. Tutto infatti andava riposizionato da capo. Ho dovuto creare da zero delle funzioni di calcolo per mantenere le proporzioni nel caso avessi cambiato anche solo la dimensione di un pulsante di 1px. 
 		Per questa esperienza sconsiglio il framework Corona per applicazioni di tipo business.
 	
 	\subsection{Ambiente di sviluppo}
@@ -162,13 +162,13 @@
 		
 		
 		\subsection{Considerazioni finali}
-			Le principali difficoltà riscontrate nello sviluppo di Flappy Flame non devono ricadere al 100\% su Corona, la mia scarsa competenza di uso di un linguaggio di scripting e di sviluppo di videogame ha rallentato molto inizialmente lo sviluppo. Infatti lo sviluppo di un videogame presenta una moltitudine di problemi legati fra loro e spesso molto più complessi di un’applicazione business: la gestione del Game Loop ne è un esempio.
+			Le principali difficoltà riscontrate nello sviluppo di Flappy Flame non devono ricadere al 100\% su Corona, la mia scarsa competenza di uso di un linguaggio di scripting e di sviluppo di videogame ha rallentato molto, almeno inizialmente, lo sviluppo. Infatti lo sviluppo di un videogame presenta una moltitudine di problemi legati fra loro e spesso molto più complessi di un’applicazione business: la gestione del Game Loop ne è un esempio.
 			
-			Ritengo Corona un framework perfetto per avvicinarsi alla programmazione di videogame soprattutto per chi ha già un Javascript in background. Dall'altra parte vedo ardua la creazione di giochi molto complessi con Corona SDK e in quel caso mi cercherei altri framework più avanzati e complessi. Ritengo la totale gratuità un vantaggio notevole, soprattutto per il mondo degli sviluppatori indipendenti. 
+			Ritengo Corona un framework perfetto per avvicinarsi alla programmazione di videogame soprattutto per chi ha già una forte esperienza con Javascript o altri linguaggi di scripting. Dall'altra parte vedo ardua la creazione di giochi molto complessi con Corona SDK e in quel caso cercherei altri framework più avanzati e complessi. Ritengo la totale gratuità un vantaggio notevole, soprattutto per il mondo degli sviluppatori indipendenti. 
 			
-			Dal lato dell'usabilità Corona SDK sembra non averci minimamente pensato, basti pensare alla lacunosa libreria \verb|widget| e ritengo Corona SDK un framework inappropriato per applicazioni con contesti non ludici.
+			Dal lato dell'usabilità Corona SDK sembra non averci minimamente pensato, basti pensare alla lacunosa libreria \verb|widget| e ritengo Corona SDK un framework inappropriato per contesti applicativi non puramente ludici.
 			
-			Corona ha certamente delle grandi potenzialità ma quello che secondo me fa la differenza nella scelta delle tecnologie è l’ambiente di sviluppo. Ritengo che questo sia un punto fondamentale per l’affermazione di un framework. La totale assenza di un editor integrato con tutti gli altri strumenti: simulatore, console, documentazione inline etc. fa sì che lo sviluppo con Corona SDK sia una quasi costante fonte di frustrazione.
+			Corona ha certamente delle grandi potenzialità ma quello che secondo me fa la differenza nella scelta delle tecnologie è l’ambiente di sviluppo. Ritengo che questo sia un punto fondamentale per l’affermazione di un framework. La totale assenza di un editor integrato con tutti gli altri strumenti: simulatore, console, documentazione inline etc. fa sì che lo sviluppo con Corona SDK sia una quasi costante fonte di interruzioni e in alcuni casi frustrazione.
 			
 			\paragraph{} Quindi: Corona SDK sì o no? Sì, se si è alle prime armi e si voglia sperimentare lo sviluppo di un videogame con budget limitato, no altrimenti.
 			
